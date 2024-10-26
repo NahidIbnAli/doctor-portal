@@ -11,11 +11,14 @@ const ManageDoctors = () => {
   } = useQuery({
     queryKey: ["managedoctors"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/doctors", {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        "https://doctorsportalserver.vercel.app/doctors",
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = res.json();
       return data;
     },
@@ -34,7 +37,7 @@ const ManageDoctors = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/doctors/${id}`, {
+        fetch(`https://doctorsportalserver.vercel.app/doctors/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,

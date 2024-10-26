@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
       </footer>
       <p className="text-center text-accent pb-8">
-        Copyright 2022 All Rights Reserved
+        {`Copyright ${new Date().getFullYear()} All Rights Reserved`}
       </p>
     </div>
   );
